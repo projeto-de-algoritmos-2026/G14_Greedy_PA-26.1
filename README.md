@@ -124,7 +124,39 @@ A interface foi desenvolvida utilizando Streamlit, proporcionando:
 
 ---
 
-## Screenshots
+## **01 - Caixa de Digitação do Texto**
+É preciso pressionar **"Ctrl + Enter"** para enviar o texto digitado.
+
+<img width="953" height="293" alt="image" src="https://github.com/user-attachments/assets/b865d8c1-b8ca-4d1a-85c6-7ca832a47055" />
+
+---
+
+## **02 - Tabela de Frequência dos Caracteres**
+Tabela de frequência dos caracteres da palavra **"Universidade"** e o gráfico de barras ilustrando a distribuição das frequências.
+
+<img width="931" height="531" alt="image" src="https://github.com/user-attachments/assets/fdb20765-8621-4bc7-9946-71aee050a2aa" />
+
+---
+
+## **03 - Passo a Passo do Algoritmo e Codificação em Bits**
+Tabela contendo o processo de construção gulosa da árvore de Huffman e os códigos binários gerados para cada caractere.
+
+<img width="928" height="566" alt="image" src="https://github.com/user-attachments/assets/0bca01a4-f72e-4d03-9bf8-b231fd92bf99" />
+
+---
+
+## **04 - Árvore de Huffman Gerada**
+Árvore de Huffman construída a partir da palavra **"Universidade"**.
+
+<img width="806" height="601" alt="image" src="https://github.com/user-attachments/assets/382ac407-e75d-4bb2-b09a-6495bc1bada6" />
+
+---
+
+## **05 - Codificação, Decodificação e Métricas**
+Resultado da codificação e decodificação da palavra **"Universidade"**, além das métricas de compressão obtidas.
+
+<img width="900" height="360" alt="image" src="https://github.com/user-attachments/assets/48d90e20-1fa3-492f-bb5d-1ed6836050fb" />
+
 
 
 
