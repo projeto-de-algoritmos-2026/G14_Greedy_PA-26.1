@@ -140,7 +140,7 @@ Framework: Streamlit<br> -->
 Clone o repositório:
 ```bash
 git clone https://github.com/projeto-de-algoritmos-2026/G14_Grafos_PA-26.1
-cd G28-Busca-EDA2-26.1
+cd G14_Greedy_PA-26.1
 ```
 
 Instale as dependências:
