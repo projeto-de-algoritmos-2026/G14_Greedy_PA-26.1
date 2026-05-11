@@ -1,5 +1,7 @@
 import pandas as pd
 import streamlit as st
+from algoritmo.metricas import calcular_metricas
+from algoritmo.visualizacao import gerar_graphviz
 
 from algoritmo.huffman import (
     calcular_frequencias,
@@ -8,10 +10,6 @@ from algoritmo.huffman import (
     codificar_texto,
     decodificar_texto,
 )
-
-from algoritmo.metricas import calcular_metricas
-from algoritmo.visualizacao import gerar_graphviz
-
 
 st.set_page_config(
     page_title="Algoritmo de Huffman",
@@ -53,14 +51,29 @@ if texto:
         for caractere, frequencia in frequencias.items()
     ])
 
+    df_freq = df_freq.sort_values(
+         by="Frequência",
+        ascending=True
+    ).reset_index(drop=True)
+
+    df_freq.index = df_freq.index + 1
+
     st.dataframe(df_freq, use_container_width=True)
 
     st.bar_chart(df_freq.set_index("Caractere")["Frequência"])
 
     st.header("Passo a passo guloso")
 
-    st.dataframe(pd.DataFrame(passos), use_container_width=True)
+    # st.dataframe(pd.DataFrame(passos), use_container_width=True)
 
+    df_passos = pd.DataFrame(passos)
+
+    df_passos.index = df_passos.index + 1
+
+    st.dataframe(
+        df_passos,
+        use_container_width=True
+    )
     st.header("Códigos Huffman")
 
     df_codigos = pd.DataFrame([
@@ -71,6 +84,10 @@ if texto:
         }
         for caractere, codigo in codigos.items()
     ])
+
+    df_codigos = df_codigos.reset_index(drop=True)
+
+    df_codigos.index = df_codigos.index + 1
 
     st.dataframe(df_codigos, use_container_width=True)
 
@@ -88,7 +105,22 @@ if texto:
 
     st.header("Métricas")
 
-    st.metric(
-        "Economia de espaço",
-        f"{metricas['Economia (%)']:.2f}%"
-    )
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.metric(
+            "Bits Originais",
+            metricas["Bits Originais"]
+        )
+
+    with col2:
+        st.metric(
+            "Bits Comprimidos",
+            metricas["Bits Comprimidos"]
+        )
+
+    with col3:
+        st.metric(
+            "Economia de espaço",
+            f"{metricas['Economia (%)']:.2f}%"
+        )

@@ -26,15 +26,29 @@ def rotulo_no(no: NoHuffman) -> str:
     return f"Subárvore({no.frequencia})"
 
 
-def construir_arvore_huffman(texto: str) -> Tuple[Optional[NoHuffman], List[Dict]]:
+def construir_arvore_huffman(
+    texto: str
+) -> Tuple[Optional[NoHuffman], List[Dict]]:
+
     frequencias = calcular_frequencias(texto)
 
     heap: List[NoHuffman] = []
+
     passos = []
+
     ordem = 0
 
     for caractere, frequencia in frequencias.items():
-        heapq.heappush(heap, NoHuffman(frequencia, ordem, caractere))
+
+        heapq.heappush(
+            heap,
+            NoHuffman(
+                frequencia,
+                ordem,
+                caractere
+            )
+        )
+
         ordem += 1
 
     if not heap:
@@ -43,7 +57,9 @@ def construir_arvore_huffman(texto: str) -> Tuple[Optional[NoHuffman], List[Dict
     passo = 1
 
     while len(heap) > 1:
+
         no1 = heapq.heappop(heap)
+
         no2 = heapq.heappop(heap)
 
         novo_no = NoHuffman(
@@ -55,4 +71,86 @@ def construir_arvore_huffman(texto: str) -> Tuple[Optional[NoHuffman], List[Dict
         )
 
         ordem += 1
-    return "".join(resultado)
+
+        heapq.heappush(heap, novo_no)
+
+        passos.append({
+            "Passo": passo,
+            "Nó 1": rotulo_no(no1),
+            "Nó 2": rotulo_no(no2),
+            "Resultado": rotulo_no(novo_no)
+        })
+
+        passo += 1
+
+    return heap[0], passos
+
+
+def gerar_codigos(
+    no,
+    codigo_atual="",
+    codigos=None
+):
+
+    if codigos is None:
+        codigos = {}
+
+    if no is None:
+        return codigos
+
+    if no.eh_folha():
+
+        codigos[
+            no.caractere
+        ] = codigo_atual or "0"
+
+    gerar_codigos(
+        no.esquerda,
+        codigo_atual + "0",
+        codigos
+    )
+
+    gerar_codigos(
+        no.direita,
+        codigo_atual + "1",
+        codigos
+    )
+
+    return codigos
+
+
+def codificar_texto(
+    texto,
+    codigos
+):
+
+    return "".join(
+        codigos[caractere]
+        for caractere in texto
+    )
+
+
+def decodificar_texto(
+    texto_codificado,
+    raiz
+):
+
+    resultado = ""
+
+    no_atual = raiz
+
+    for bit in texto_codificado:
+
+        if bit == "0":
+            no_atual = no_atual.esquerda
+
+        else:
+            no_atual = no_atual.direita
+
+        if no_atual.eh_folha():
+
+            resultado += no_atual.caractere
+
+            no_atual = raiz
+
+    return resultado
