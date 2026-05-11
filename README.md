@@ -1,7 +1,7 @@
 # G14_Greedy_PA-26.1
 
 Número da Dupla: 14<br>
-Conteúdo da Disciplina: Grafo<br>
+Conteúdo da Disciplina: Greedy<br>
 Vídeo da Apresentação: ()
 
 ## Alunas
