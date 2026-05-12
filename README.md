@@ -182,11 +182,10 @@ pip install -r requirements.txt
 
 ## Uso 
 
-<!-- Para executar o projeto, utilize o seguinte comando:
+Para executar o projeto, utilize o seguinte comando:
 ```
-
-``` -->
-
+streamlit run app.py 
+```
 ### Após executar:
 
 1. O usuário insere um texto;
@@ -212,7 +211,7 @@ projeto_huffman/
 ├── algoritmo/
 │   ├── __init__.py
 │   ├── huffman.py           # lógica principal do algoritmo;
-│   ├── metricas.py          # álculo de compressão;
+│   ├── metricas.py          # cálculo de compressão;
 │   └── visualizacao.py      # geração da árvore;
 |
 ├── app.py                   # interface Streamlit;
