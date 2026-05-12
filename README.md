@@ -64,6 +64,9 @@ O algoritmo funciona atribuindo códigos binários menores para caracteres mais 
 A estratégia gulosa utilizada consiste em:
 - Analisar a frequência de cada simbolo do texto;
 - Selecionar repetidamente os dois nós com menor frequência;
+
+## Justificativa do algoritmo
+
 - Combinar esses nós em uma nova subárvore;
 - Inserir novamente essa subárvore na fila de prioridade;
 - Repetir o processo até formar a árvore completa.
@@ -196,9 +199,6 @@ streamlit run app.py
 6. Os códigos binários são atribuídos;
 7. O texto é compactado;
 8. O sistema exibe métricas e resultados visuais.
-
-
-## Justificativa do algoritmo
 
 ## Justificativa do algoritmo
 
