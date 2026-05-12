@@ -64,6 +64,9 @@ O algoritmo funciona atribuindo códigos binários menores para caracteres mais 
 A estratégia gulosa utilizada consiste em:
 - Analisar a frequência de cada simbolo do texto;
 - Selecionar repetidamente os dois nós com menor frequência;
+
+## Justificativa do algoritmo
+
 - Combinar esses nós em uma nova subárvore;
 - Inserir novamente essa subárvore na fila de prioridade;
 - Repetir o processo até formar a árvore completa.
@@ -182,11 +185,10 @@ pip install -r requirements.txt
 
 ## Uso 
 
-<!-- Para executar o projeto, utilize o seguinte comando:
+Para executar o projeto, utilize o seguinte comando:
 ```
-
-``` -->
-
+streamlit run app.py 
+```
 ### Após executar:
 
 1. O usuário insere um texto;
@@ -198,10 +200,29 @@ pip install -r requirements.txt
 7. O texto é compactado;
 8. O sistema exibe métricas e resultados visuais.
 
-
 ## Justificativa do algoritmo
 
-<!-- O algoritmo ambicioso de Huffman foi escolhido por ... -->
+O algoritmo ambicioso de Huffman foi escolhido por ser uma solução eficiente e clássica para problemas de compactação de dados. Sua principal característica é a utilização de uma estratégia gulosa, na qual, a cada etapa, são escolhidos os dois caracteres com menor frequência para formar uma nova subárvore.
+
+Essa abordagem permite construir uma árvore binária ótima, reduzindo significativamente a quantidade de bits necessária para representar uma mensagem. Dessa forma, caracteres mais frequentes recebem códigos menores, enquanto caracteres menos frequentes recebem códigos maiores, tornando a codificação mais eficiente.
+
+Além de demonstrar claramente o funcionamento de algoritmos ambiciosos, o Huffman também possibilita a aplicação de importantes conceitos da computação, como:
+- Árvores binárias;
+- Filas de prioridade (Min Heap);
+- Estruturas de dados;
+- Compressão de dados;
+- Otimização computacional.
+
+O algoritmo também foi escolhido por possuir aplicações reais em sistemas de compressão utilizados no cotidiano, como arquivos ZIP, imagens e transmissão de dados.
+
+Outro fator importante foi a possibilidade de desenvolver uma interface visual interativa, permitindo visualizar:
+- A frequência dos caracteres;
+- A construção da árvore de Huffman;
+- Os códigos binários gerados;
+- O processo de codificação e decodificação;
+- As métricas de compressão obtidas.
+
+Assim, o projeto consegue unir teoria e prática, demonstrando de forma visual e interativa a eficiência do algoritmo de Huffman e sua importância na área da computação.
 
 ## Estrutura do Projeto
 
@@ -212,7 +233,7 @@ projeto_huffman/
 ├── algoritmo/
 │   ├── __init__.py
 │   ├── huffman.py           # lógica principal do algoritmo;
-│   ├── metricas.py          # álculo de compressão;
+│   ├── metricas.py          # cálculo de compressão;
 │   └── visualizacao.py      # geração da árvore;
 |
 ├── app.py                   # interface Streamlit;
