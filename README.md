@@ -2,7 +2,7 @@
 
 Número da Dupla: 14<br>
 Conteúdo da Disciplina: Greedy<br>
-Vídeo da Apresentação: ()
+Vídeo da Apresentação: (https://youtu.be/SevDtAX_R6E)
 
 ## Alunas
 |Matrícula | Aluna |
